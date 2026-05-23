@@ -1,0 +1,156 @@
+/* Fabric.js Canvas Styles */
+.canvas-container {
+  position: relative;
+  display: inline-block;
+}
+
+.canvas-container canvas {
+  border: 2px dashed #e5e7eb;
+  border-radius: 8px;
+}
+
+/* Fabric.js Object Controls */
+.fabric-object-controls {
+  pointer-events: auto !important;
+}
+
+/* Selection styles */
+.fabric-canvas .upper-canvas {
+  border-radius: 8px;
+}
+
+/* Custom control styles */
+.fabric-object-control-corner {
+  background-color: #3b82f6 !important;
+  border-color: #1d4ed8 !important;
+  border-radius: 2px !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.fabric-object-control-side {
+  background-color: #3b82f6 !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* Hover effects */
+.fabric-object:hover {
+  cursor: move;
+}
+
+/* Selection border */
+.fabric-selection-element {
+  border-color: #3b82f6 !important;
+  border-width: 2px !important;
+}
+
+/* Grid background */
+.fabric-canvas-grid {
+  background-image: 
+    linear-gradient(to right, #f3f4f6 1px, transparent 1px),
+    linear-gradient(to bottom, #f3f4f6 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Zoom controls */
+.fabric-zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+
+/* Object property panel */
+.fabric-properties-panel {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.fabric-properties-panel input {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+/* Toolbar */
+.fabric-toolbar {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.fabric-toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background: #e2e8f0;
+  margin: 0 4px;
+}
+
+/* Responsive canvas */
+@media (max-width: 768px) {
+  .canvas-container canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .fabric-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .fabric-properties-panel {
+    max-height: 200px;
+  }
+}
+
+/* Animation for canvas ready */
+.canvas-ready {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading state */
+.canvas-loading {
+  position: relative;
+}
+
+.canvas-loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.canvas-loading::after {
+  content: 'Cargando canvas...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #64748b;
+  z-index: 21;
+}
